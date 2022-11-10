@@ -10,9 +10,10 @@ public class Destination extends Executable {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter month of your next trip :");
         int a;
-         do {
+        //γίνεται έλεγχος εγκυρότητας του μήνα//
+        do {
             a = input.nextLine();
-         }while (a >= 1 && a <= 12); 
+        }while (a >= 1 && a <= 12); 
         super.tripMonth[super.position]  = a;
         System.out.println("Enter the destination of your next trip :");
         super.tripDest[super.position] = input.nextLine();
