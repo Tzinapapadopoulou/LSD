@@ -6,7 +6,7 @@ public class Destination extends Executable {
     //υποθέτουμε ότι ο πίνακας που κληρονομείται είναι 5(χρήστες)*5(στοιχεία)//
     //κληρονομείται και δημόσια μεταβλητή τύπου int και όνομα position με την θέση του εκάστοτε χρήστη στον πίνακα με τα στοιχεία// 
     Scanner input = new Scanner(System.in);
-    public void fillArray() {
+    public void fillArrayList() {
         //μέθοδο που συμπληρώνει τα στοχεία του ταξιδιού του χρήστη που βρίσκεται στην θέση position//
         TableOfDestinations a = new TableOfDestinations();
         boolean continueLoop = true;
@@ -23,7 +23,7 @@ public class Destination extends Executable {
             }   
         } while (continueLoop);
         checkMonth(month);
-        super.tripMonth[super.position]  = month;
+        super.tripMonth.add(super.position, month);
         a.appearsTableOfDestinations();
         System.out.println("Choose the destination of your next trip from the list above (Enter number)");
         continueLoop = true;
@@ -40,7 +40,7 @@ public class Destination extends Executable {
             }   
         } while (continueLoop);
         checkDestination(numOfDest);
-        super.tripDest[super.position] = numOfDest;
+        super.tripDest.add(super.position, numOfDest);
     }
     public int checkMonth(int a) {
         //γίνεται έλεγχος εγκυρότητας του μήνα//
