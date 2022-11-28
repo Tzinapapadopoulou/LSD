@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Executable {
     //5 χρήστες//
-    public String[] tripDest = new int[5];
-    public int[] tripMonth = new int[5];
+    ArrayList<Integer> tripDest = new ArrayList<Integer>();
+    ArrayList<Integer> tripMonth = new ArrayList<Integer>();
     public int position;
 }
