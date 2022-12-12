@@ -3,6 +3,11 @@ import java.util.Stack;
 public class Like {
 
     public static int[][] createWholikedwho() {
+        /*η κλαση Match απο την μεθοδο matchingUsersProfile θα στέλνει μία λίστα με ονομα allowlike με τα Primary key (στήλη POSITION του πίνακα sql) 
+των χρηστών με τουσ οποίουσ ο χρήστησ που είναι συνδεδεμένοσ τωρα (στην θέση super.position(βλέπε κλάση Excecutable) 
+κάνει ματσ. Ο πίνακας wholikewho θα είναι τετραγωνικόσ με αριθμό στηλών(και γραμμών) το columnsize του πίνακα τοθ 
+sql ππου περιέχει τα στοιχεία των χρηστών. πχ αν η λίστα : <12,14> τότε θα υπάρχει δυνατότητα like
+ στισ θέσεις πίνακα [super.position,12] και  [super.position, 14]*/
         int[][] wholikedwho = new int[10][10];
         for (int i = 0; i < wholikedwho.length; i++) {
             for (int j = 0; j < wholikedwho[0].length; j++) { 
