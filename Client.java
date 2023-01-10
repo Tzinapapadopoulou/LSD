@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Scanner;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Client {
@@ -29,13 +28,14 @@ public class Client {
             bufferedWriter.write(username);
             bufferedWriter.newLine();
             bufferedWriter.flush();
-            Scanner scanner = new Scanner(System.in);
-            while (socket.isConnected()) {
-                String messageToSend = scanner.nextLine();
-                bufferedWriter.write( username + ": " + messageToSend);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
-            }
+            try (Scanner scanner = new Scanner(System.in)) {
+				while (socket.isConnected()) {
+				    String messageToSend = scanner.nextLine();
+				    bufferedWriter.write( username + ": " + messageToSend);
+				    bufferedWriter.newLine();
+				    bufferedWriter.flush();
+				}
+			}
         } catch (IOException e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
@@ -75,11 +75,10 @@ public class Client {
         }
     }
     public static void main (String [] args) {
-		try {
-			Scanner scanner = new Scanner(System.in);
-        	System.out.println("Enter your username for the chat: ");
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Enter your username for the chat: ");
         	String username = scanner.nextLine();
-        	Socket socket = new Socket( "localhost", 1234);
+        	Socket socket = new Socket( "localhost", 2345);
         	Client client = new Client(socket, username);
         	client.listenForMessage();
         	client.sendMessage();
