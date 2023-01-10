@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import javax.sound.sampled.Port;
 
 public class Server {
     private ServerSocket serverSocket;
@@ -31,7 +30,7 @@ public class Server {
         }
     }
     public static void main (String [] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket( 1234);
+        ServerSocket serverSocket = new ServerSocket(2345);
         Server server = new Server(serverSocket);
         server.startServer();
     }
