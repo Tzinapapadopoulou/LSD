@@ -1,8 +1,8 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -19,12 +19,12 @@ public class ClientHandler implements Runnable {
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.clientUsername = bufferedReader.readLine();
             clientHandlers.add(this);
-            broadcastMessage("SERVER: " + clientUsername + " has entered the chat!");
+            broadcastMessage("SERVER: " + clientUsername + "has entered the chat!");
         } catch (IOException e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
     }
-@Override
+@Override 
 public void run() {
     String messageFromClient;
     while (socket.isConnected()) {
