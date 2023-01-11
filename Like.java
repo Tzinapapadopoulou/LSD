@@ -26,25 +26,18 @@ public class ConnectSql {
         	ResultSet rs = pstmt.executeQuery();
         	while(rs.next()) {
         		System.out.println(rs.getString("LIKER") + " " + rs.getString("LIKED"));
-        		if (rs.getString("LIKER") == liked) {
-        		 flag = true;
-			 	}
+        		flag = true;
 			}
 		} catch (SQLException e) {
             e.printStackTrace();
             System.out.print(e.getMessage());
         }
 
-        if (flag == true) {
+        if (flag == false) {
 			//call message
-			System.out.println("TRUE");
-		} else {
 			System.out.println("FALSE");
+		} else {
+			System.out.println("TRUE");
 		}
 	}
 }
-
-
-
-
-
