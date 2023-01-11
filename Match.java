@@ -10,9 +10,9 @@ public class Match {
 		position = a;
     }
     
-    public static boolean thereIsAtLeastABuddy = false;
+    public static boolean thereIsAtLeastABuddy;
     public static ArrayList<Integer> matchingUsersProfile() throws ClassNotFoundException {
-      
+    	thereIsAtLeastABuddy = false;
         List<Integer> allowlike = new ArrayList<Integer>();
         
         try{
@@ -24,45 +24,51 @@ public class Match {
             System.out.println("connected successfully to Database");
             Statement stmt1 = conn.createStatement();
             Statement stmt2 = conn.createStatement();
+            Statement stmt = conn.createStatement();
             ResultSet rs1= null;
             ResultSet rs2 = null;
-           
-            int i = 1;
-
+            ResultSet rs = null;
+        
+            String sql2 = "SELECT COUNT(*) FROM USERS" ; //αριθμος σειρων βασης
+            rs = stmt.executeQuery(sql2);
+            rs.next();
+            int x = rs.getInt(1);
+            
             try {
                 String sqlfortheuser = "select DEST, MONTHY from USERS where POSITION=" + String.valueOf(position);
                 rs1 = stmt1.executeQuery(sqlfortheuser);
-                System.out.println("ok1");
-                while (((ResultSet) rs1).next()) {
-                    try {
-                        String sql = "select DEST, MONTHY from USERS where POSITION=" + String.valueOf(i);
-                        rs2 = stmt2.executeQuery(sql);
-                        System.out.println("ok2");
-                        if (rs1.getInt("DEST") == rs2.getInt("DEST") && rs1.getInt("MONTHY") == rs2.getInt("MONTHY")
-                                && i != position) {
-                            if (thereIsAtLeastABuddy == false) {
-                                System.out.println("Your possible travel Buddies are :");
-                                thereIsAtLeastABuddy = true;
-                            }
-                            System.out.printf(rs2.getString("USERNAME"));
-                            allowlike.add(i);
+                while(rs1.next()) {
+                	for(int i = 1;i<=x; i++) {        
+                		try {
+                        	String sql = "select DEST, MONTHY, USERNAME from USERS where POSITION=" + String.valueOf(i);
+                        	rs2 = stmt2.executeQuery(sql);
+                        	while (rs2.next()) {
+                                if (rs1.getInt("DEST") == rs2.getInt("DEST") && i != position && rs1.getString("MONTHY").equals(rs2.getString("MONTHY"))) { 
+                                		if (thereIsAtLeastABuddy == false) {
+                                			System.out.println("Your possible travel Buddies are :");
+                                			thereIsAtLeastABuddy = true;
+                                		}
+                                		System.out.println(rs2.getString("USERNAME"));
+                                		allowlike.add(i);
+                                }
+                        	}
+                        } catch (SQLException e) {
+                            System.out.println(e);
                         }
-                    } catch (SQLException e) {
-                        System.out.println(e);
+                       
                     }
-                    i++;
+                    
                 }
-                conn.close();
+                
             } catch (SQLException e) {
                 System.out.println(e);
             }
-           
+            conn.close();
         }catch (SQLException e){
             System.out.println("SQLException :");
         }
         if (thereIsAtLeastABuddy == false) {
             System.out.println("We're sorry but there isn't any travel buddy for you. Please try again with new destination info");
-            
             return (ArrayList<Integer>) allowlike;
         }else {
             return (ArrayList<Integer>) allowlike;
