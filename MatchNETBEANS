@@ -147,6 +147,12 @@ public class Match extends javax.swing.JFrame {
         jLabel2.setText("Your possible travel buddy");
 
         jFormattedTextField1.setText(username);
+        jFormattedTextField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                jFormattedTextField1.setText(username);
+            }
+        });
         jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextField1ActionPerformed(evt);
