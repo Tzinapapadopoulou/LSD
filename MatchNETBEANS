@@ -22,6 +22,7 @@ import java.util.List;
 public class Match extends javax.swing.JFrame {
 
     public static int position;
+    public static String username;
 
     
     public void setPosition(int a){
@@ -67,6 +68,7 @@ public class Match extends javax.swing.JFrame {
                                 			thereIsAtLeastABuddy = true;
                                 		}
                                 		System.out.println(rs2.getString("USERNAME"));
+                                                username = rs2.getString("USERNAME");
                                                 java.awt.EventQueue.invokeLater(new Runnable() {
                                                     public void run() {
                                                         new Match().setVisible(true);
@@ -141,7 +143,7 @@ public class Match extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText(rs2.getString("USERNAME"));
+        jLabel1.setText(username);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
