@@ -196,13 +196,16 @@ public class Match extends javax.swing.JFrame {
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        dispose();        
+        dispose();       
+        clearArea();
     }                                        
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         // TODO add your handling code here:
     }                                                    
-
+    private void clearArea() {
+        jFormattedTextField1.setText("");
+    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
