@@ -1,0 +1,90 @@
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class Example extends javax.swing.JFrame {
+    public static void main(String[] args) {
+    	
+
+    	
+    	JFrame f = new JFrame("text");
+    	
+       f.getContentPane().setBackground(Color.BLACK);
+ 	   f.setSize(290,220);
+ 	   f.setLocation(735,550);
+ 	   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 	   JTextArea area=new JTextArea("some text");
+       area.setBounds(0,0, 280,100);
+       JLabel l1,l2;  
+       l1=new JLabel("text");  
+       l1.setBounds(0,107, 55,25);  
+       l2=new JLabel("text");  
+       l2.setBounds(140,107, 55,25); 
+       JTextField t1,t2;  
+       t1=new JTextField();  
+       t1.setBounds(55,107, 75,25);
+       t2=new JTextField();  
+       t2.setBounds(195,107, 75,25); 
+       JButton b = new JButton("text");
+       b.setBounds(82, 142, 100, 33);
+
+       f.add(b);
+       f.add(t1); f.add(t2);  
+       f.add(area);
+       f.add(l1); f.add(l2);  
+ 	   f.setLayout(null);
+ 	   f.setVisible(true);
+
+       b.addActionListener(new ActionListener(){  
+    	   public void actionPerformed(ActionEvent e){  
+    	               
+    	       String UN = t1. getText();
+    	       String PW = t2. getText();
+
+               Container parentl1 = l1.getParent();
+    		   parentl1.remove(l1);
+    		   parentl1.validate();
+    		   parentl1.repaint();
+    		   
+    		   Container parentl2 = l2.getParent();
+    		   parentl2.remove(l2);
+    		   parentl2.validate();
+    		   parentl2.repaint();
+    		   
+    		   Container parentt1 = t1.getParent();
+    		   parentt1.remove(t1);
+    		   parentt1.validate();
+    		   parentt1.repaint();
+    		   
+    		   Container parentt2 = t2.getParent();
+    		   parentt2.remove(t2);
+    		   parentt2.validate();
+    		   parentt2.repaint();
+    		   
+    		   Container parentb = b.getParent();
+    		   parentb.remove(b);
+    		   parentb.validate();
+    		   parentb.repaint();
+    		   
+    		   area.setText("new text"); 
+    	       }
+            });
+             
+               
+       }
+         
+}
