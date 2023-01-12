@@ -24,19 +24,19 @@ public class Match extends javax.swing.JFrame {
     public static int position;
     public static String username;
 
-    
-    public void setPosition(int a){
-		position = a;
+    public void setPosition(int a) {
+        position = a;
     }
-    
+
     public static boolean thereIsAtLeastABuddy;
+
     public static ArrayList<Integer> matchingUsersProfile() throws ClassNotFoundException {
-    	thereIsAtLeastABuddy = false;
+        thereIsAtLeastABuddy = false;
         List<Integer> allowlike = new ArrayList<Integer>();
-        
-        try{
-        	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String url = "jdbc:sqlserver://" +"TZINA-PC" + ":1433;DatabaseName=" + "TRABUDZ" + ";encrypt=true;trustServerCertificate=true";
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://" + "TZINA-PC" + ":1433;DatabaseName=" + "TRABUDZ" + ";encrypt=true;trustServerCertificate=true";
             String user = "LSD";
             String passWord = "LSD123";
             Connection conn = DriverManager.getConnection(url, user, passWord);
@@ -44,65 +44,61 @@ public class Match extends javax.swing.JFrame {
             Statement stmt1 = conn.createStatement();
             Statement stmt2 = conn.createStatement();
             Statement stmt = conn.createStatement();
-            ResultSet rs1= null;
+            ResultSet rs1 = null;
             ResultSet rs2 = null;
             ResultSet rs = null;
-        
-            String sql2 = "SELECT COUNT(*) FROM USERS" ; //αριθμος σειρων βασης
+
+            String sql2 = "SELECT COUNT(*) FROM USERS"; //αριθμος σειρων βασης
             rs = stmt.executeQuery(sql2);
             rs.next();
             int x = rs.getInt(1);
-            
+
             try {
                 String sqlfortheuser = "select DEST, MONTHY from USERS where POSITION=" + String.valueOf(position);
                 rs1 = stmt1.executeQuery(sqlfortheuser);
-                while(rs1.next()) {
-                	for(int i = 1;i<=x; i++) {        
-                		try {
-                        	String sql = "select DEST, MONTHY, USERNAME from USERS where POSITION=" + String.valueOf(i);
-                        	rs2 = stmt2.executeQuery(sql);
-                        	while (rs2.next()) {
-                                    if (rs1.getInt("DEST") == rs2.getInt("DEST") && i != position && rs1.getString("MONTHY").equals(rs2.getString("MONTHY"))) { 
-                                		username = rs2.getString("USERNAME");
-                                                if (thereIsAtLeastABuddy == false) {
-                                			System.out.println("Your possible travel Buddies are :");
-                                			thereIsAtLeastABuddy = true;
-                                		}
-                                		System.out.println(rs2.getString("USERNAME"));
-                                                java.awt.EventQueue.invokeLater(new Runnable() {
-                                                    public void run() {
-                                                        new Match().setVisible(true);
-                                                    }
-                                                });
-                                		allowlike.add(i);
+                while (rs1.next()) {
+                    for (int i = 1; i <= x; i++) {
+                        try {
+                            String sql = "select DEST, MONTHY, USERNAME from USERS where POSITION=" + String.valueOf(i);
+                            rs2 = stmt2.executeQuery(sql);
+                            while (rs2.next()) {
+                                if (rs1.getInt("DEST") == rs2.getInt("DEST") && i != position && rs1.getString("MONTHY").equals(rs2.getString("MONTHY"))) {
+                                    username = rs2.getString("USERNAME");
+                                    if (thereIsAtLeastABuddy == false) {
+                                        System.out.println("Your possible travel Buddies are :");
+                                        thereIsAtLeastABuddy = true;
                                     }
-                        	}
+                                    System.out.println(rs2.getString("USERNAME"));
+                                    interfaces();
+                                    allowlike.add(i);
+                                }
+                            }
                         } catch (SQLException e) {
                             System.out.println(e);
                         }
-                       
+
                     }
-                    
+
                 }
-                
+
             } catch (SQLException e) {
                 System.out.println(e);
             }
             conn.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("SQLException :");
         }
         if (thereIsAtLeastABuddy == false) {
             System.out.println("We're sorry but there isn't any travel buddy for you. Please try again with new destination info");
             return (ArrayList<Integer>) allowlike;
-        }else {
+        } else {
             return (ArrayList<Integer>) allowlike;
         }
-        
+
     }
-    
+
     public boolean getBoolean() {
-    	return thereIsAtLeastABuddy;
+        return thereIsAtLeastABuddy;
     }
 
     public Match() {
@@ -117,7 +113,7 @@ public class Match extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField(username);
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -196,7 +192,7 @@ public class Match extends javax.swing.JFrame {
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        dispose();       
+        dispose();
         clearArea();
     }                                        
 
@@ -205,6 +201,15 @@ public class Match extends javax.swing.JFrame {
     }                                                    
     private void clearArea() {
         jFormattedTextField1.setText("");
+    }
+
+    /**
+     *
+     */
+    public static void interfaces() {
+            java.awt.EventQueue.invokeLater(() -> {
+                new Match().setVisible(true);
+            });
     }
 
     // Variables declaration - do not modify                     
