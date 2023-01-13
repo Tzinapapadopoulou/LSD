@@ -10,6 +10,7 @@ public class ConnectSql {
 		String liked = "ANNA";
 		boolean flag = false;
 		String checkbudz = "SELECT * FROM LIKES WHERE LIKER=? AND LIKED=?;";
+		String insertlike = "INSERT INTO LIKES (LIKER, LIKED) VALUES (?, ?);";
 		
 		String connectionUrl = "jdbc:sqlserver://----1433;"
 			+ "database=--;"
@@ -18,12 +19,19 @@ public class ConnectSql {
 
 		try (Connection connection = DriverManager.getConnection(connectionUrl)) {
 			System.out.println("Επιτυχής σύνδεση");
+
 			//ΕΙΣΑΓΩΓΗ ΛΑΙΚ ΣΤΟΝ ΠΙΝΑΚΑ LIKES
+			PreparedStatement ins = connection.prepareStatement(insertlike);
+			ins.setString(1, liker);
+		    ins.setString(2, liked);
+			int rowsInserted = ins.executeUpdate();
+			System.out.println(rowsInserted);
+
 			//ΤΣΕΚΑΡΕΙ ΑΝ ΕΧΕΙ ΚΑΝΕΙ ΚΑΙ Ο LIKED ΛΑΙΚ ΠΙΣΩ ΣΤΟΝ LIKER
-			PreparedStatement pstmt = connection.prepareStatement(checkbudz);
-		    pstmt.setString(1, liked);
-		    pstmt.setString(2, liker);
-        	ResultSet rs = pstmt.executeQuery();
+			PreparedStatement check = connection.prepareStatement(checkbudz);
+		    check.setString(1, liked);
+		    check.setString(2, liker);
+        	ResultSet rs = check.executeQuery();
         	while(rs.next()) {
         		System.out.println(rs.getString("LIKER") + " " + rs.getString("LIKED"));
         		flag = true;
