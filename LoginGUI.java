@@ -34,8 +34,9 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 
 public class LoginGUI extends JFrame {
-
 	
+	private Image account_image = new ImageIcon(LoginGUI.class.getResource("/images/account.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);;
+	private Image key_image = new ImageIcon(LoginGUI.class.getResource("/images/key.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	
 	private JPanel contentPane;
 	private final JLabel lblNewLabel = new JLabel("LOGIN ");
@@ -50,6 +51,8 @@ public class LoginGUI extends JFrame {
 	private final JLabel lblNewLabel_2 = new JLabel("New to Trabuds?");
 	private final JComboBox comboBox = new JComboBox();
 	private final JComboBox comboBox_1 = new JComboBox();
+	private final JLabel account = new JLabel("");
+	private final JLabel key = new JLabel("");
 
 	/**\
 	 * Launch the application.
@@ -71,8 +74,8 @@ public class LoginGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginGUI() {
-		textField.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		textField.setBounds(295, 105, 121, 30);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField.setBounds(150, 85, 198, 30);
 		textField.setColumns(10);
 		initGUI();
 	}
@@ -81,63 +84,83 @@ public class LoginGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 541, 513);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 128, 192));
+		contentPane.setForeground(new Color(0, 64, 128));
+		contentPane.setBackground(new Color(0, 128, 128));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		
 				setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.BOLD, 26));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(161, 11, 205, 53);
+		lblNewLabel.setBounds(160, 11, 205, 53);
 		
 		contentPane.add(lblNewLabel);
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
-		lblNewLabel_1.setBounds(143, 98, 115, 39);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
+		lblNewLabel_1.setBounds(150, 52, 115, 39);
 		
 		contentPane.add(lblNewLabel_1);
 		
 		contentPane.add(textField);                                         //Εισαγωγη ονοματος
-		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
-		lblNewLabel_1_1.setBounds(143, 148, 122, 30);
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
+		lblNewLabel_1_1.setBounds(150, 120, 122, 30);
 		
 		contentPane.add(lblNewLabel_1_1);
-		passwordField.setBounds(295, 152, 121, 30);
+		passwordField.setBounds(150, 150, 198, 30);
 		contentPane.add(passwordField);                                     //Εισαγωγη κωδικου
-		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		btnNewButton.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		
-		btnNewButton.setBounds(180, 319, 155, 39);
+		btnNewButton.setBounds(190, 326, 155, 39);
 		contentPane.add(btnNewButton);
-		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.PLAIN, 23));
-		lblNewLabel_1_2.setBounds(143, 200, 122, 30);
+		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
+		lblNewLabel_1_2.setBounds(150, 183, 122, 30);
 		
 		contentPane.add(lblNewLabel_1_2);
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
-		lblNewLabel_1_2_1.setBounds(143, 252, 95, 30);
+		lblNewLabel_1_2_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2_1.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1_2_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
+		lblNewLabel_1_2_1.setBounds(150, 241, 95, 30);
 		
 		contentPane.add(lblNewLabel_1_2_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 17));
+		btnNewButton_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 17));
 		btnNewButton_1.setBounds(211, 410, 205, 30);
 		
 		contentPane.add(btnNewButton_1);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 19));
 		lblNewLabel_2.setBounds(70, 410, 275, 30);
 		
 		contentPane.add(lblNewLabel_2);
 		comboBox.setEditable(true);
-		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Athens", "Paris", "Rome", "London", "Barcelona", "Prague", "Vienna", "Amsterdam", "Budapest", "Lisbon", "Copenagen", "Instabul", "Berlin", "Stockholm", "Dublin", "Oslo", "Milan", "Bucharest", "Moscha", "Madrid", ""}));
-		comboBox.setBounds(295, 204, 128, 30);
+		comboBox.setBounds(150, 213, 216, 30);
      	contentPane.add(comboBox);  //εισαγωγη του προορισμου
      	
 		comboBox_1.setEditable(true);
-		comboBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		comboBox_1.setBounds(295, 252, 128, 30);
+		comboBox_1.setBounds(150, 273, 216, 30);
 		contentPane.add(comboBox_1); //εισαγωγη μηνα
+		
+		account.setBounds(346, 75, 43, 51);
+		contentPane.add(account);
+		account.setIcon(new ImageIcon(account_image));
+		
+		key.setHorizontalAlignment(SwingConstants.TRAILING);
+		key.setBounds(346, 150, 30, 30);
+		contentPane.add(key);
+		key.setIcon(new ImageIcon(key_image));
 		
 		
 		btnNewButton.addActionListener(new ActionListener() {
