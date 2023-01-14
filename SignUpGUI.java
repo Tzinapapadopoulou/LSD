@@ -25,7 +25,7 @@ import com.toedter.calendar.JDayChooser;
 
 public class SignUpGUI extends JFrame {
 	
-	static UserEclipse register = new UserEclipse();
+	static User register = new User();
 	static SQLConnector connector = new SQLConnector();
     
 	private Image img_logo = new ImageIcon(SignUpGUI.class.getResource("/images/4312298.png")).getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
@@ -75,7 +75,7 @@ public class SignUpGUI extends JFrame {
 	 */
 	public SignUpGUI() {
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textField.setBounds(266, 72, 145, 29);
+		textField.setBounds(130, 89, 201, 29);
 		textField.setColumns(10);
 		initGUI();
 	}
@@ -83,50 +83,50 @@ public class SignUpGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 836, 612);
 		contentPane = new JPanel();
-		contentPane.setForeground(new Color(0, 0, 0));
-		contentPane.setBackground(new Color(0, 128, 192));
+		contentPane.setForeground(new Color(0, 64, 128));
+		contentPane.setBackground(new Color(0, 128, 128));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		lblNewLabel.setBackground(new Color(0, 0, 0));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 30));
-		lblNewLabel.setBounds(289, 12, 124, 50);
+		lblNewLabel.setBounds(338, 11, 124, 50);
 		
 		getContentPane().add(lblNewLabel);
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1.setBounds(138, 65, 133, 44);
+		lblNewLabel_1.setBounds(130, 55, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_1.setBounds(138, 108, 133, 44);
+		lblNewLabel_1_1.setBounds(130, 118, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_1);
 		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_2.setBounds(138, 160, 133, 44);
+		lblNewLabel_1_2.setBounds(130, 182, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_2);
 		lblNewLabel_1_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_3.setBounds(138, 215, 133, 44);
+		lblNewLabel_1_3.setBounds(130, 252, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_3);
 		lblNewLabel_1_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_4.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_4.setBounds(138, 264, 133, 44);
+		lblNewLabel_1_4.setBounds(130, 320, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_4);
 		lblNewLabel_1_5.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_5.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_5.setBounds(138, 307, 133, 44);
+		lblNewLabel_1_5.setBounds(130, 376, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_5);
 		lblNewLabel_1_5_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_5_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 23));
-		lblNewLabel_1_5_1.setBounds(138, 362, 133, 44);
+		lblNewLabel_1_5_1.setBounds(130, 431, 133, 44);
 		
 		getContentPane().add(lblNewLabel_1_5_1);
 		
@@ -134,31 +134,31 @@ public class SignUpGUI extends JFrame {
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
 		textField_1.setColumns(10);
-		textField_1.setBounds(266, 120, 145, 29);
+		textField_1.setBounds(130, 155, 201, 29);
 		getContentPane().add(textField_1);
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		
 		textField_2.setColumns(10);
-		textField_2.setBounds(266, 172, 145, 29);
+		textField_2.setBounds(130, 218, 201, 29);
 		getContentPane().add(textField_2);
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		
 		textField_3.setColumns(10);
-		textField_3.setBounds(266, 226, 145, 29);
+		textField_3.setBounds(130, 292, 201, 29);
 		getContentPane().add(textField_3);
 		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		
 		textField_4.setColumns(10);
-		textField_4.setBounds(266, 274, 145, 29);
+		textField_4.setBounds(130, 354, 201, 29);
 		getContentPane().add(textField_4);
 		
 		
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"female", "male", "other"}));
-		comboBox.setBounds(266, 370, 145, 29);
+		comboBox.setBounds(130, 467, 145, 29);
 		getContentPane().add(comboBox);
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setForeground(new Color(0, 0, 0));
@@ -223,17 +223,17 @@ public class SignUpGUI extends JFrame {
 		});
 			
 		btnNewButton.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		btnNewButton.setBounds(472, 437, 216, 50);
+		btnNewButton.setBounds(536, 430, 177, 47);
 		getContentPane().add(btnNewButton);
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		
 		
 		lblNewLabel_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(531, 28, 145, 27);
+		lblNewLabel_2.setBounds(568, 56, 145, 27);
 		getContentPane().add(lblNewLabel_2);
 		
 		btnNewButton_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
-		btnNewButton_1.setBounds(674, 30, 101, 23);
+		btnNewButton_1.setBounds(709, 58, 101, 23);
 		getContentPane().add(btnNewButton_1);
 		
 		
@@ -256,5 +256,3 @@ public class SignUpGUI extends JFrame {
 		contentPane.add(dateChooser);
 	}
 }
-
-
