@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.lang.String;
 
 
-public class ConnectSql {
+public class Like {
 	public static void main(String[] args) {
 
 		String liker = "MARIA";
@@ -46,6 +46,10 @@ public class ConnectSql {
 			System.out.println("FALSE");
 		} else {
 			System.out.println("TRUE");
+            CallServer s = new CallServer();
+            CallClient c = new CallClient();
+            s.start();
+            c.start();
 		}
 	}
 }
