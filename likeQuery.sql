@@ -5,11 +5,10 @@ LIKER VARCHAR(30) NOT NULL,
 LIKED VARCHAR(30) NOT NULL);
 
 INSERT INTO LIKES (LIKER, LIKED)
-VALUES ('ANNA', 'NATALIA'),
-('MARIA', 'ANNA'),
-('MARIA', 'NATALIA'),
-('NATALIA', 'MARIA'),
- ('ANNA', 'MARIA');
+VALUES ('fotpapad', 'tzinaki'),
+('agglasd', 'mairytet'),
+('mariasigala', 'tzinaki'),
+ ('mairytet', 'fotpapad');
 
 /*DROP TABLE LIKES;*/
 SELECT * FROM LIKES;
