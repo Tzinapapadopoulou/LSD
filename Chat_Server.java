@@ -46,8 +46,7 @@ public class Chat_Server extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 204));
         setForeground(new java.awt.Color(0, 153, 204));
-        setShape(RoundRectangle2D
-        );
+  
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Me");
@@ -148,6 +147,7 @@ public class Chat_Server extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Chat_Server().setVisible(true);
             }
@@ -177,3 +177,4 @@ public class Chat_Server extends javax.swing.JFrame {
     private javax.swing.JTextField txt_msg;
     // End of variables declaration                   
 }
+
