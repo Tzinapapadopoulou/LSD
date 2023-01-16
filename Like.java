@@ -4,18 +4,16 @@ import java.lang.String;
 
 
 public class Like {
-	public static void main(String[] args) {
+	public static void likee(String liker, String liked) {
 
-		String liker = "MARIA";
-		String liked = "ANNA";
 		boolean flag = false;
 		String checkbudz = "SELECT * FROM LIKES WHERE LIKER=? AND LIKED=?;";
 		String insertlike = "INSERT INTO LIKES (LIKER, LIKED) VALUES (?, ?);";
-		
-		String connectionUrl = "jdbc:sqlserver://----1433;"
-			+ "database=--;"
-			+ "user=--;"
-			+ "password=--;";
+
+		String connectionUrl = "jdbc:sqlserver://sqlserver.dmst.aueb.gr:1433;"
+			+ "database=DB39;"
+			+ "user=G539;"
+			+ "password=wf3044;";
 
 		try (Connection connection = DriverManager.getConnection(connectionUrl)) {
 			System.out.println("Επιτυχής σύνδεση");
