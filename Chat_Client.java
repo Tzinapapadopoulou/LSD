@@ -1,3 +1,5 @@
+package net.codejava.sql;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,10 +11,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
-/**
- *
- * @author natakokota
- */
 public class Chat_Client extends javax.swing.JFrame {
     static Socket s;
     static DataInputStream din;
