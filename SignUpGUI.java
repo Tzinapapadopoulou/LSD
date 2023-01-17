@@ -25,7 +25,7 @@ import com.toedter.calendar.JDayChooser;
 
 public class SignUpGUI extends JFrame {
 	
-	static User register = new User();
+	static UserEclipse register = new UserEclipse();
 	static SQLConnector connector = new SQLConnector();
     
 	private Image img_logo = new ImageIcon(SignUpGUI.class.getResource("/images/4312298.png")).getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
@@ -251,7 +251,7 @@ public class SignUpGUI extends JFrame {
 		lblNewLabel_5.setFont(new Font("Bauhaus 93", Font.PLAIN, 65));
 		lblNewLabel_5.setBounds(597, 176, 157, 83);
 		contentPane.add(lblNewLabel_5);
-		dateChooser.setBounds(266, 321, 147, 30);
+		dateChooser.setBounds(130, 408, 201, 30);
 		
 		contentPane.add(dateChooser);
 	}
