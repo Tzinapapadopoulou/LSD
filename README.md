@@ -19,6 +19,7 @@ junit, jcalnedar, jgoodies, mmsql-jdbc
 5. Έξοδος από την εφαρμογή με δυνατότητα επανασύνδεσης με τα στοιχεία της εγγραφής. 
 
 Αποθετήριο:
+
 SignUpGUI.java
 Εισαγωγή username, password, destination, date, month στις βάσεις δεδομένων και έλεγχος προς αποφυγήν διπλοτιμων. 
 
