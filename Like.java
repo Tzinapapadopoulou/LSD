@@ -10,10 +10,10 @@ public class Like {
 		String checkbudz = "SELECT * FROM LIKES WHERE LIKER=? AND LIKED=?;";
 		String insertlike = "INSERT INTO LIKES (LIKER, LIKED) VALUES (?, ?);";
 
-		String connectionUrl = "jdbc:sqlserver://sqlserver.dmst.aueb.gr:1433;"
-			+ "database=DB39;"
-			+ "user=G539;"
-			+ "password=wf3044;";
+		String connectionUrl = "jdbc:sqlserver://--:1433;"
+			+ "database=--;"
+			+ "user=--;"
+			+ "password=--;";
 
 		try (Connection connection = DriverManager.getConnection(connectionUrl)) {
 			System.out.println("Επιτυχής σύνδεση");
