@@ -1,4 +1,4 @@
-package net.codejava.sql;
+package net.codejava.sql
 
 public class UserEclipse {
 	
