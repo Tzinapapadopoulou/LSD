@@ -257,7 +257,9 @@ public class LoginGUI extends JFrame {
 		                pstmt.executeUpdate(); //μπαινουν τα στοιχεια στη βαση 
 		                Match match = new Match();
 		                match.setPosition(position);
-		                match.matchingUsersProfile();
+		                match.setVisible(true);
+		                dispose();
+		                System.out.println(match.matchingUsersProfile());
 		                if (match.getBoolean() == false) {
 		                	dispose();
 		                	JOptionPane.showMessageDialog(null, "We're sorry but there isn't any travel buddy for you. Please try again with new destination info");
