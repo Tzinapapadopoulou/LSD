@@ -1,5 +1,5 @@
 
-# LSD | Scolia Media Application 
+# LSD | Τrabudz: Social Media Application 
 
 ## Οδηγίες μεταγλώττισης του προγράμματος:
 mvn build compiler
